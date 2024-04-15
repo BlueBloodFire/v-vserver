@@ -10,6 +10,9 @@
   <sql id="Base_Column_List">
     id, name, createDate, enabled
   </sql>
+  <select id="getAllPositions" resultMap="BaseResultMap">
+    select * from position;
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />

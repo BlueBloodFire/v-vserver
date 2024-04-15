@@ -1,12 +1,38 @@
 package org.wangjin.vvserver.model;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class Position {
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Objects;
+
+public class Position implements Serializable {
     private Integer id;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Position that = (Position) o;
+        return Objects.equals(name, that.name);
+    }
+
+    public Position() {
+
+    }
+
+    public Position(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 
     private String name;
 
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
     private Date createdate;
 
     private Boolean enabled;
