@@ -2,6 +2,8 @@ package org.wangjin.vvserver.mapper;
 
 import org.wangjin.vvserver.model.Politicsstatus;
 
+import java.util.List;
+
 public interface PoliticsstatusMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface PoliticsstatusMapper {
     int updateByPrimaryKeySelective(Politicsstatus record);
 
     int updateByPrimaryKey(Politicsstatus record);
+
+    List<Politicsstatus> getAllPoliticsstatus();
 }
