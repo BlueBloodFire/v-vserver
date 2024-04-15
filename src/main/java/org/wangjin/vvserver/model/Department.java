@@ -1,11 +1,56 @@
 package org.wangjin.vvserver.model;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 public class Department {
     private Integer id;
 
     private String name;
 
     private Integer parentid;
+
+    public Department() {
+
+    }
+
+    public Department(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Department department = (Department) o;
+        return Objects.equals(name, department.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+    private List<Department> chidren = new ArrayList<>();
+
+    private Integer result;
+
+    public Integer getResult() {
+        return result;
+    }
+
+    public void setResult(Integer result) {
+        this.result = result;
+    }
+
+    public List<Department> getChidren() {
+        return chidren;
+    }
+
+    public void setChidren(List<Department> chidren) {
+        this.chidren = chidren;
+    }
 
     private String deppath;
 
