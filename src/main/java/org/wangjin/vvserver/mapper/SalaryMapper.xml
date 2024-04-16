@@ -21,6 +21,11 @@
     id, basicSalary, bonus, lunchSalary, trafficSalary, allSalary, pensionBase, pensionPer,
     createDate, medicalBase, medicalPer, accumulationFundBase, accumulationFundPer, name
   </sql>
+  <select id="getAllSalaries" resultMap="BaseResultMap">
+    select
+        <include refid="Base_Column_List" />
+        from salary
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />

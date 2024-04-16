@@ -1,5 +1,7 @@
 package org.wangjin.vvserver.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Salary {
@@ -19,6 +21,7 @@ public class Salary {
 
     private Float pensionper;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date createdate;
 
     private Integer medicalbase;
