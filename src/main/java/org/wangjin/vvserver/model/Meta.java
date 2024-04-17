@@ -25,5 +25,4 @@ public class Meta implements Serializable {
     public void setRequireAuth(Boolean requireAuth) {
         this.requireAuth = requireAuth;
     }
-
 }
