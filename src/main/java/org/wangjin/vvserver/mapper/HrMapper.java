@@ -1,6 +1,9 @@
 package org.wangjin.vvserver.mapper;
 
 import org.wangjin.vvserver.model.Hr;
+import org.wangjin.vvserver.model.Role;
+
+import java.util.List;
 
 public interface HrMapper {
     int deleteByPrimaryKey(Integer id);
@@ -16,4 +19,6 @@ public interface HrMapper {
     int updateByPrimaryKey(Hr record);
 
     Hr loadUserByUsername(String username);
+
+    List<Role> getHrRoleById(Integer id);
 }
