@@ -35,11 +35,11 @@ public class Position implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
     private Date createDate;
 
-    public Date getCreateDate() {
+    public Date getcreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setcreateDate(Date createDate) {
         this.createDate = createDate;
     }
 

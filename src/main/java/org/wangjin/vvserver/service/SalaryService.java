@@ -19,7 +19,7 @@ public class SalaryService {
     }
 
     public Integer addSalary(Salary salary) {
-        salary.setCreatedate(new Date());
+        salary.setcreateDate(new Date());
         return salaryMapper.insertSelective(salary);
     }
 

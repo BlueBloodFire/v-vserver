@@ -11,7 +11,7 @@ public class JObLevel implements Serializable {
 
     private String name;
 
-    private String titlelevel;
+    private String titleLevel;
 
     @Override
     public boolean equals(Object o) {
@@ -35,7 +35,7 @@ public class JObLevel implements Serializable {
     }
 
     @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
-    private Date createdate;
+    private Date createDate;
 
     private Boolean enabled;
 
@@ -55,20 +55,20 @@ public class JObLevel implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getTitlelevel() {
-        return titlelevel;
+    public String gettitleLevel() {
+        return titleLevel;
     }
 
-    public void setTitlelevel(String titlelevel) {
-        this.titlelevel = titlelevel == null ? null : titlelevel.trim();
+    public void settitleLevel(String titleLevel) {
+        this.titleLevel = titleLevel == null ? null : titleLevel.trim();
     }
 
-    public Date getCreatedate() {
-        return createdate;
+    public Date getcreateDate() {
+        return createDate;
     }
 
-    public void setCreatedate(Date createdate) {
-        this.createdate = createdate;
+    public void setcreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
     public Boolean getEnabled() {

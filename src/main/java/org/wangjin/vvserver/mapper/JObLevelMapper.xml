@@ -4,8 +4,8 @@
   <resultMap id="BaseResultMap" type="org.wangjin.vvserver.model.JObLevel">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="titleLevel" jdbcType="CHAR" property="titlelevel" />
-    <result column="createDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="titleLevel" jdbcType="CHAR" property="titleLevel" />
+    <result column="createDate" jdbcType="TIMESTAMP" property="createDate" />
     <result column="enabled" jdbcType="BIT" property="enabled" />
   </resultMap>
   <sql id="Base_Column_List">
@@ -33,8 +33,8 @@
   <insert id="insert" parameterType="org.wangjin.vvserver.model.JObLevel">
     insert into joblevel (id, name, titleLevel,
       createDate, enabled)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{titlelevel,jdbcType=CHAR},
-      #{createdate,jdbcType=TIMESTAMP}, #{enabled,jdbcType=BIT})
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{titleLevel,jdbcType=CHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{enabled,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" parameterType="org.wangjin.vvserver.model.JObLevel">
     insert into joblevel
@@ -45,10 +45,10 @@
       <if test="name != null">
         name,
       </if>
-      <if test="titlelevel != null">
+      <if test="titleLevel != null">
         titleLevel,
       </if>
-      <if test="createdate != null">
+      <if test="createDate != null">
         createDate,
       </if>
       <if test="enabled != null">
@@ -62,11 +62,11 @@
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="titlelevel != null">
-        #{titlelevel,jdbcType=CHAR},
+      <if test="titleLevel != null">
+        #{titleLevel,jdbcType=CHAR},
       </if>
-      <if test="createdate != null">
-        #{createdate,jdbcType=TIMESTAMP},
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
       </if>
       <if test="enabled != null">
         #{enabled,jdbcType=BIT},
@@ -79,11 +79,11 @@
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="titlelevel != null">
-        titleLevel = #{titlelevel,jdbcType=CHAR},
+      <if test="titleLevel != null">
+        titleLevel = #{titleLevel,jdbcType=CHAR},
       </if>
-      <if test="createdate != null">
-        createDate = #{createdate,jdbcType=TIMESTAMP},
+      <if test="createDate != null">
+        createDate = #{createDate,jdbcType=TIMESTAMP},
       </if>
       <if test="enabled != null">
         enabled = #{enabled,jdbcType=BIT},
@@ -94,8 +94,8 @@
   <update id="updateByPrimaryKey" parameterType="org.wangjin.vvserver.model.JObLevel">
     update joblevel
     set name = #{name,jdbcType=VARCHAR},
-      titleLevel = #{titlelevel,jdbcType=CHAR},
-      createDate = #{createdate,jdbcType=TIMESTAMP},
+      titleLevel = #{titleLevel,jdbcType=CHAR},
+      createDate = #{createDate,jdbcType=TIMESTAMP},
       enabled = #{enabled,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>

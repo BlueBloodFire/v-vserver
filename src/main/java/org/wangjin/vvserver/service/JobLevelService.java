@@ -19,7 +19,7 @@ public class JobLevelService {
     }
 
     public Integer addJobLevel(JObLevel jobLevel) {
-        jobLevel.setCreatedate(new Date());
+        jobLevel.setcreateDate(new Date());
         jobLevel.setEnabled(true);
         return jobLevelMapper.insertSelective(jobLevel);
     }

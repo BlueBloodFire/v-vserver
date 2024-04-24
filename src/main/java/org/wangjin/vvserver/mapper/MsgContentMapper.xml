@@ -5,7 +5,7 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="message" jdbcType="VARCHAR" property="message" />
-    <result column="createDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="createDate" jdbcType="TIMESTAMP" property="createDate" />
   </resultMap>
   <sql id="Base_Column_List">
     id, title, message, createDate
@@ -24,7 +24,7 @@
     insert into msgcontent (id, title, message,
       createDate)
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{message,jdbcType=VARCHAR},
-      #{createdate,jdbcType=TIMESTAMP})
+      #{createDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="org.wangjin.vvserver.model.MsgContent">
     insert into msgcontent
@@ -38,7 +38,7 @@
       <if test="message != null">
         message,
       </if>
-      <if test="createdate != null">
+      <if test="createDate != null">
         createDate,
       </if>
     </trim>
@@ -52,8 +52,8 @@
       <if test="message != null">
         #{message,jdbcType=VARCHAR},
       </if>
-      <if test="createdate != null">
-        #{createdate,jdbcType=TIMESTAMP},
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -66,8 +66,8 @@
       <if test="message != null">
         message = #{message,jdbcType=VARCHAR},
       </if>
-      <if test="createdate != null">
-        createDate = #{createdate,jdbcType=TIMESTAMP},
+      <if test="createDate != null">
+        createDate = #{createDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -76,7 +76,7 @@
     update msgcontent
     set title = #{title,jdbcType=VARCHAR},
       message = #{message,jdbcType=VARCHAR},
-      createDate = #{createdate,jdbcType=TIMESTAMP}
+      createDate = #{createDate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -21,7 +21,7 @@ public class PositionService {
 
     public Integer addPosition(Position position) {
         position.setEnabled(true);
-        position.setCreateDate(new Date());
+        position.setcreateDate(new Date());
         return positionMapper.insertSelective(position);
     }
 

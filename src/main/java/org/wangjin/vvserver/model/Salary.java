@@ -22,7 +22,7 @@ public class Salary {
     private Float pensionper;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date createdate;
+    private Date createDate;
 
     private Integer medicalbase;
 
@@ -98,12 +98,12 @@ public class Salary {
         this.pensionper = pensionper;
     }
 
-    public Date getCreatedate() {
-        return createdate;
+    public Date getcreateDate() {
+        return createDate;
     }
 
-    public void setCreatedate(Date createdate) {
-        this.createdate = createdate;
+    public void setcreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
     public Integer getMedicalbase() {
