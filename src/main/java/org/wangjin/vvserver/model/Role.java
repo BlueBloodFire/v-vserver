@@ -26,11 +26,11 @@ public class Role implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getNameZh() {
+    public String getnameZh() {
         return nameZh;
     }
 
-    public void setNameZh(String nameZh) {
+    public void setnameZh(String nameZh) {
         this.nameZh = nameZh;
     }
 }
