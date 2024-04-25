@@ -19,7 +19,7 @@ public class DepartmentController {
         return departmentService.getAllDepartments();
     }
 
-    @PutMapping("/")
+    @PostMapping("/")
     public RespBean addDep(@RequestBody Department department) {
         departmentService.addDep(department);
         if (department.getResult() == 1) {

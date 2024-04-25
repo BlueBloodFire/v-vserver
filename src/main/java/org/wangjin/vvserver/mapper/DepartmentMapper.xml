@@ -10,7 +10,7 @@
     <result column="isParent" jdbcType="BIT" property="isParent" />
   </resultMap>
   <resultMap id="DepartmentWithChildren" type="org.wangjin.vvserver.model.Department" extends="BaseResultMap">
-    <collection property="chidren" ofType="org.wangjin.vvserver.model.Department"
+    <collection property="children" ofType="org.wangjin.vvserver.model.Department"
                 select="org.wangjin.vvserver.mapper.DepartmentMapper.getAllDepartmentsByParentId" column="id" />
   </resultMap>
   <sql id="Base_Column_List">

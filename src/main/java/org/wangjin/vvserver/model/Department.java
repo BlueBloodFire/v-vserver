@@ -10,10 +10,9 @@ public class Department implements Serializable {
 
     private String name;
 
-    private Integer parentid;
+    private Integer parentId;
 
     public Department() {
-
     }
 
     public Department(String name) {
@@ -24,8 +23,8 @@ public class Department implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Department department = (Department) o;
-        return Objects.equals(name, department.name);
+        Department that = (Department) o;
+        return Objects.equals(name, that.name);
     }
 
     @Override
@@ -33,8 +32,12 @@ public class Department implements Serializable {
         return Objects.hash(name);
     }
 
-    private List<Department> chidren = new ArrayList<>();
+    private String depPath;
 
+    private Boolean enabled;
+
+    private Boolean isParent;
+    private List<Department> children = new ArrayList<>();
     private Integer result;
 
     public Integer getResult() {
@@ -45,19 +48,13 @@ public class Department implements Serializable {
         this.result = result;
     }
 
-    public List<Department> getChidren() {
-        return chidren;
+    public List<Department> getChildren() {
+        return children;
     }
 
-    public void setChidren(List<Department> chidren) {
-        this.chidren = chidren;
+    public void setChildren(List<Department> children) {
+        this.children = children;
     }
-
-    private String deppath;
-
-    private Boolean enabled;
-
-    private Boolean isparent;
 
     public Integer getId() {
         return id;
@@ -75,22 +72,6 @@ public class Department implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getParentid() {
-        return parentid;
-    }
-
-    public void setParentid(Integer parentid) {
-        this.parentid = parentid;
-    }
-
-    public String getDeppath() {
-        return deppath;
-    }
-
-    public void setDeppath(String deppath) {
-        this.deppath = deppath == null ? null : deppath.trim();
-    }
-
     public Boolean getEnabled() {
         return enabled;
     }
@@ -99,11 +80,27 @@ public class Department implements Serializable {
         this.enabled = enabled;
     }
 
-    public Boolean getIsparent() {
-        return isparent;
+    public Integer getParentId() {
+        return parentId;
     }
 
-    public void setIsparent(Boolean isparent) {
-        this.isparent = isparent;
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
+    }
+
+    public String getDepPath() {
+        return depPath;
+    }
+
+    public void setDepPath(String depPath) {
+        this.depPath = depPath;
+    }
+
+    public Boolean getParent() {
+        return isParent;
+    }
+
+    public void setParent(Boolean parent) {
+        isParent = parent;
     }
 }
