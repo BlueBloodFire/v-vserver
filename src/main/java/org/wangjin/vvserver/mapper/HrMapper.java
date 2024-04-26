@@ -1,5 +1,6 @@
 package org.wangjin.vvserver.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.wangjin.vvserver.model.Hr;
 import org.wangjin.vvserver.model.Role;
 
@@ -21,4 +22,12 @@ public interface HrMapper {
     Hr loadUserByUsername(String username);
 
     List<Role> getHrRoleById(Integer id);
+
+    List<Hr> getAllHrs(@Param("hrid") Integer rid, @Param("keywords") String keywords);
+
+    List<Hr> getAllHrsExceptCurrentHr(Integer id);
+
+    Integer updatePasswd(@Param("hrid") Integer hrid, @Param("encodePass") String encodePass);
+
+    Integer updateUserface(@Param("url") String url, @Param("id") Integer id);
 }

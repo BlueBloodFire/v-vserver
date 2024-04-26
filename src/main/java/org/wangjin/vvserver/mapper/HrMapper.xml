@@ -13,9 +13,28 @@
     <result column="userface" jdbcType="VARCHAR" property="userface" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
   </resultMap>
+  <resultMap id="HrWithRoles" type="org.wangjin.vvserver.model.Hr" extends="BaseResultMap">
+    <collection property="roles" ofType="org.wangjin.vvserver.model.Role">
+      <id column="rid" property="id"/>
+      <result column="rname" property="name"/>
+      <result column="rnameZh" property="nameZh"/>
+    </collection>
+  </resultMap>
   <sql id="Base_Column_List">
     id, name, phone, telephone, address, enabled, username, password, userface, remark
   </sql>
+  <select id="getAllHrsExceptCurrentHr" resultMap="BaseResultMap">
+    select * from hr where id !=#{id};
+  </select>
+  <select id="getAllHrs" resultMap="BaseResultMap">
+    select hr.id, hr.name, hr.phone, hr.telephone, hr.address, hr.enabled, hr.username, hr.userface,
+    hr.remark,r.`id` as rid,r.`name` as rname,r.`nameZh` as rnameZh from hr left join hr_role hrr on
+    hr.`id`=hrr.`hrid` left join role r on hrr.`rid`=r.`id` where hr.`id`!=#{hrid}
+    <if test="keywords!=null">
+      and hr.name like concat('%',#{keywords},'%')
+    </if>
+    order by hr.id
+  </select>
   <select id="getHrRoleById" resultType="org.wangjin.vvserver.model.Role">
     select r.* from role r,hr_role hrr where hrr.`rid`= r.`id` and hrr.`hrid`=#{id}
   </select>
@@ -141,6 +160,12 @@
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateUserface">
+    update hr set userface = #{url} where id=#{id};
+  </update>
+  <update id="updatePasswd">
+    update hr set password = #{encodePass} where id=#{hrid};
   </update>
   <update id="updateByPrimaryKey" parameterType="org.wangjin.vvserver.model.Hr">
     update hr

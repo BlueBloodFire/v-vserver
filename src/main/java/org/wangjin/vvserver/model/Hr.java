@@ -1,5 +1,6 @@
 package org.wangjin.vvserver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 public class Hr implements UserDetails {
     private Integer id;
@@ -33,6 +35,19 @@ public class Hr implements UserDetails {
 
     public List<Role> getRoles() {
         return roles;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Hr hr = (Hr) o;
+        return Objects.equals(username, hr.username);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username);
     }
 
     public void setRoles(List<Role> roles) {
@@ -112,6 +127,7 @@ public class Hr implements UserDetails {
     }
 
     @Override
+    @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>(roles.size());
         for (Role role : roles) {
