@@ -35,6 +35,21 @@ public class EmpBasicController {
         return RespBean.error("添加失败！");
     }
 
+    @DeleteMapping("/{id}")
+    public RespBean deleteEmpByEid(@PathVariable Integer id) {
+        if (employeeService.deleteEmpByEid(id) == 1) {
+            return RespBean.ok("删除成功!");
+        }
+        return RespBean.error("删除失败!");
+    }
+
+    @PutMapping("/")
+    public RespBean updateEmp(@RequestBody Employee employee) {
+        if (employeeService.updateEmp(employee) == 1) {
+            return RespBean.ok("更新成功!");
+        }
+        return RespBean.error("更新失败!");
+    }
     @GetMapping("/nations")
     public List<Nation> getAllNations() {
         return nationService.getAllNations();
@@ -58,5 +73,11 @@ public class EmpBasicController {
     @GetMapping("/deps")
     public List<Department> getAllDepartments() {
         return departmentService.getAllDepartments();
+    }
+
+    @GetMapping("/maxWorkID")
+    public RespBean maxWorkID() {
+        RespBean respBean = RespBean.build().setStatus(200).setObj(String.format("%08d", employeeService.maxWorkID() + 1));
+        return respBean;
     }
 }
