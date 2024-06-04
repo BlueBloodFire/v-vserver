@@ -3,6 +3,7 @@ package org.wangjin.vvserver.mapper;
 import org.apache.ibatis.annotations.Param;
 import org.wangjin.vvserver.model.Employee;
 
+import java.util.Date;
 import java.util.List;
 
 public interface EmployeeMapper {
@@ -18,9 +19,9 @@ public interface EmployeeMapper {
 
     int updateByPrimaryKey(Employee record);
 
-    List<Employee> getEmployeeByPage(@Param("page") Integer page, @Param("size") Integer size);
+    List<Employee> getEmployeeByPage(@Param("page") Integer page, @Param("size") Integer size, @Param("emp") Employee employee, @Param("beginDateScope") Date[] beginDateScope);
 
-    Long getTotal();
+    Long getTotal(@Param("emp") Employee employee, @Param("beginDateScope") Date[] beginDateScope);
 
     Integer maxWorkID();
 

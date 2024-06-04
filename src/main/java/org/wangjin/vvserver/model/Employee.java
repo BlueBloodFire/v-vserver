@@ -48,6 +48,7 @@ public class Employee implements Serializable {
                 ", department=" + department +
                 ", jobLevel=" + jobLevel +
                 ", position=" + position +
+                ", salary=" + salary +
                 '}';
     }
 
